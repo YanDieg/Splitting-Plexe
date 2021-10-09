@@ -1,0 +1,181 @@
+file 170502 1633744308                                          
+version 2
+run SplittingManeuver1-0-20211009-01:47:25-6450
+attr configname SplittingManeuver1
+attr datetime 20211009-01:47:25
+attr experiment SplittingManeuver1
+attr inifile omnetpp.ini
+attr iterationvars "$nCars=4, $platoonSize=4, $nLanes=1, $caccXi=1, $caccOmegaN=0.2, $ploegH=0.5, $leaderHeadway=1.2, $leaderSpeed=100, $beaconInterval=0.1, $priority=2, $packetSize=200"
+attr iterationvarsf nCars=4,platoonSize=4,nLanes=1,caccXi=1,caccOmegaN=0.2,ploegH=0.5,leaderHeadway=1.2,leaderSpeed=100,beaconInterval=0.1,priority=2,packetSize=200-
+attr measurement "$nCars=4, $platoonSize=4, $nLanes=1, $caccXi=1, $caccOmegaN=0.2, $ploegH=0.5, $leaderHeadway=1.2, $leaderSpeed=100, $beaconInterval=0.1, $priority=2, $packetSize=200"
+attr network Highway
+attr processid 6450
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar beaconInterval 0.1
+itervar caccOmegaN 0.2
+itervar caccXi 1
+itervar leaderHeadway 1.2
+itervar leaderSpeed 100
+itervar nCars 4
+itervar nLanes 1
+itervar packetSize 200
+itervar platoonSize 4
+itervar ploegH 0.5
+itervar priority 2
+param *.node[*].appl.vehicleDestination "\"1,0,1,0\""
+param *.playgroundSizeX 65000m
+param *.playgroundSizeY 25000m
+param *.playgroundSizeZ 50m
+param *.annotations.draw false
+param *.obstacles.debug false
+param *.world.useTorus false
+param *.world.use2D false
+param *.manager.updateInterval 0.01s
+param *.manager.host "\"localhost\""
+param *.manager.moduleType "\"org.car2x.plexe.PlatoonCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.moduleDisplayString "\"\""
+param *.manager.autoShutdown true
+param *.manager.margin 25
+param *.rsu[0].mobility.x 20
+param *.rsu[0].mobility.y 40
+param *.rsu[0].mobility.z 1.895
+param *.rsu[*].applType "\"AppRSU\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 7
+param *.rsu[*].appl.dataUserPriority 5
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+param *.rsu[*].appl.sendBeacons true
+param *.rsu[*].appl.dataOnSch true
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.mac1609_4.useAcks true
+param *.**.nic.mac1609_4.ackErrorRate 0.0
+param *.**.nic.mac1609_4.frameErrorRate 0.0
+param *.**.nic.phy80211p.minPowerLevel -94dBm
+param *.**.nic.phy80211p.maxTXPower 100mW
+param *.**.nic.phy80211p.useNoiseFloor true
+param *.**.nic.phy80211p.noiseFloor -95dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.rsu[*].nic.phy80211p.antennaOffsetY "0 m"
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+param *.node[*].mobility.x 0
+param *.node[*].mobility.y 0
+param *.node[*].mobility.z 1.895
+param **.seed 0
+param *.manager.configFile "\"./sumocfg/freeway.sumo.cfg\""
+param *.manager.launchConfig "xmldoc(\"./sumocfg/freeway.launchd.xml\")"
+param **.numberOfCars 4
+param **.numberOfCarsPerPlatoon 4
+param **.numberOfLanes 1
+param **.controllerXi 1
+param **.controllerOmegaN 0.2
+param *.node[*].helper_type "\"PositionHelper\""
+param *.node[*].scenario.caccC1 0.5
+param *.node[*].scenario.caccXi 1
+param *.node[*].scenario.caccOmegaN "0.2 Hz"
+param *.node[*].scenario.caccSpacing "5 m"
+param *.node[*].scenario.engineTau "0.5 s"
+param *.node[*].scenario.ploegH 0.5s
+param *.node[*].scenario.ploegKp 0.2
+param *.node[*].scenario.ploegKd 0.7
+param *.node[*].scenario.useRealisticEngine false
+param **.numericController 0
+param *.node[*].scenario.controller "\"CACC\""
+param *.node[*].scenario.accHeadway "0.1 s"
+param *.node[*].scenario.leaderHeadway 1.2s
+param *.node[*].scenario.leaderSpeed 100kmph
+param *.node[*].appl_type "\"SplittingPlatooningApp\""
+param *.node[*].appl.joinManeuver "\"JoinAtBack\""
+param *.node[*].appl.mergeManeuver "\"MergeAtBack\""
+param *.node[*].appl.splittingManeuver "\"Splitting\""
+param *.node[*].protocol_type "\"SimplePlatooningBeaconing\""
+param *.node[*].prot.beaconingInterval 0.1s
+param *.node[*].prot.priority 2
+param *.node[*].prot.packetSize 200
+param **.traffic_type "\"PlatoonsTrafficManager\""
+param **.traffic.platoonInsertTime "1 s"
+param **.traffic.platoonInsertSpeed 100kmph
+param **.traffic.nCars 4
+param **.traffic.platoonSize 4
+param **.traffic.nLanes 1
+param **.traffic.platooningVType "\"vtypeauto\""
+param **.traffic.platoonInsertDistance "5 m"
+param **.traffic.platoonInsertHeadway "0 s"
+param **.traffic.platoonLeaderHeadway 1.2s
+param *.manager.command "\"sumo-gui\""
+param *.manager.ignoreGuiCommands false
+param *.node[*].scenario_type "\"SplittingManeuverScenario\""
+param *.node[*].scenario.leaderController "\"ACC\""
+param *.node[*].scenario.followerController "\"CACC\""
+param *.node[*].scenario.otherCarController "\"ACC\""
+param *.node[*].scenario.desiredPlatoonSpeed 110
+param *.node[*].scenario.desiredIntersectionPlatoonSpeed 90
+param *.node[*].scenario.desiredOtherCarSpeed 130
+param *.node[*].scenario.desiredIntersectionOtherCarSpeed 110
+param *.node[*].scenario.meneuverTime 1
+param *.node[*].appl.securityDistance 5
+
+vector 0 Highway.node[3].prot frontDelay ETV
+vector 1 Highway.node[3].prot frontDelayId ETV
+vector 2 Highway.node[2].prot frontDelay ETV
+vector 3 Highway.node[2].prot frontDelayId ETV
+vector 4 Highway.node[1].prot leaderDelay ETV
+vector 5 Highway.node[1].prot leaderDelayId ETV
+vector 6 Highway.node[1].prot frontDelay ETV
+vector 7 Highway.node[1].prot frontDelayId ETV
+vector 8 Highway.node[2].prot leaderDelay ETV
+vector 9 Highway.node[2].prot leaderDelayId ETV
+vector 10 Highway.node[3].prot leaderDelay ETV
+vector 11 Highway.node[3].prot leaderDelayId ETV
+vector 12 Highway.node[0].prot nodeId ETV
+vector 13 Highway.node[0].prot busyTime ETV
+vector 14 Highway.node[0].prot collisions ETV
+vector 15 Highway.node[1].prot nodeId ETV
+vector 16 Highway.node[1].prot busyTime ETV
+vector 17 Highway.node[1].prot collisions ETV
+vector 18 Highway.node[2].prot nodeId ETV
+vector 19 Highway.node[2].prot busyTime ETV
+vector 20 Highway.node[2].prot collisions ETV
+vector 21 Highway.node[3].prot nodeId ETV
+vector 22 Highway.node[3].prot busyTime ETV
+vector 23 Highway.node[3].prot collisions ETV
+0	6516 15583 788 69442 1.213891645018 41.71388465635 406 0.099987610351 0.100011276402 40.59999462673 4.0599989344621
+1	22099 10364 788 69442 1.213891645018 41.71388465635 406 3 3 1218 3654
+2	32463 15582 829 69325 1.22964167464 41.629636426354 405 0.099992328121 0.100011276197 40.499996367114 4.0499992817252
+3	48045 10351 829 69325 1.22964167464 41.629636426354 405 2 2 810 1620
+4	58396 15553 872 69364 1.254478704293 41.654486473113 405 0.099991611904 0.100011276506 40.500009384245 4.0500018852059
+5	73949 10338 872 69364 1.254478704293 41.654486473113 405 1 1 405 405
+6	84287 15553 872 69364 1.254478704293 41.654486473113 405 0.099991611904 0.100011276506 40.500009384245 4.0500018852059
+7	99840 10338 872 69364 1.254478704293 41.654486473113 405 1 1 405 405
+8	110178 15566 878 69370 1.254478733914 41.654486519261 405 0.099991611921 0.100011276514 40.500009400772 4.0500018885113
+9	125744 10349 878 69370 1.254478733914 41.654486519261 405 2 2 810 1620
+10	136093 15982 884 69376 1.254478763535 41.654486564953 405 0.09999161193 0.100011276526 40.500009416844 4.0500018917257
+11	152075 10762 884 69376 1.254478763535 41.654486564953 405 3 3 1215 3645
+12	162837 547 2084 68267 2 41 40 0 0 0 0
+13	163384 827 2084 68267 2 41 40 0.01189235551 0.013021487682 0.502225203918 0.0063067455161853
+14	164211 547 2084 68267 2 41 40 0 0 0 0
+15	164758 547 2085 68268 2 41 40 1 1 40 40
+16	165305 824 2085 68268 2 41 40 0.011762059262 0.012954 0.50205713948 0.0063025954896
+17	166129 547 2085 68268 2 41 40 0 0 0 0
+18	166676 547 2086 68269 2 41 40 2 2 80 160
+19	167223 818 2086 68269 2 41 40 0.011762118504 0.012954 0.502024118504 0.0063017556837021
+20	168041 547 2086 68269 2 41 40 0 0 0 0
+21	168588 547 2087 68270 2 41 40 3 3 120 360
+22	169135 819 2087 68270 2 41 40 0.011761177744 0.012954 0.502119177744 0.006304140849926
+23	169954 547 2087 68270 2 41 40 0 0 0 0
+

@@ -1,0 +1,205 @@
+file 171485 1633741480                                          
+version 2
+run SplittingManeuver-1-20211009-01:02:18-4160
+attr configname SplittingManeuver
+attr datetime 20211009-01:02:18
+attr experiment SplittingManeuver
+attr inifile omnetpp.ini
+attr iterationvars "$nCars=4, $platoonSize=4, $nLanes=1, $caccXi=2, $caccOmegaN=1, $ploegH=0.5, $leaderHeadway=1.2, $leaderSpeed=100, $beaconInterval=0.1, $priority=2, $packetSize=200"
+attr iterationvarsf nCars=4,platoonSize=4,nLanes=1,caccXi=2,caccOmegaN=1,ploegH=0.5,leaderHeadway=1.2,leaderSpeed=100,beaconInterval=0.1,priority=2,packetSize=200-
+attr measurement "$nCars=4, $platoonSize=4, $nLanes=1, $caccXi=2, $caccOmegaN=1, $ploegH=0.5, $leaderHeadway=1.2, $leaderSpeed=100, $beaconInterval=0.1, $priority=2, $packetSize=200"
+attr network Highway
+attr processid 4160
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 1
+attr seedset 0
+itervar beaconInterval 0.1
+itervar caccOmegaN 1
+itervar caccXi 2
+itervar leaderHeadway 1.2
+itervar leaderSpeed 100
+itervar nCars 4
+itervar nLanes 1
+itervar packetSize 200
+itervar platoonSize 4
+itervar ploegH 0.5
+itervar priority 2
+param *.manager.command "\"sumo-gui\""
+param *.manager.ignoreGuiCommands false
+param *.node[*].scenario_type "\"SplittingManeuverScenario\""
+param *.node[*].scenario.leaderController "\"ACC\""
+param *.node[*].scenario.followerController "\"CACC\""
+param *.node[*].scenario.otherCarController "\"ACC\""
+param *.node[*].scenario.desiredPlatoonSpeed 110
+param *.node[*].scenario.desiredIntersectionPlatoonSpeed 90
+param *.node[*].scenario.desiredOtherCarSpeed 130
+param *.node[*].scenario.desiredIntersectionOtherCarSpeed 110
+param *.node[*].scenario.meneuverTime 1
+param *.node[*].appl.securityDistance 5
+param *.node[*].appl.vehicleDestination "\"1,0,1,0\""
+param *.playgroundSizeX 65000m
+param *.playgroundSizeY 25000m
+param *.playgroundSizeZ 50m
+param *.annotations.draw false
+param *.obstacles.debug false
+param *.world.useTorus false
+param *.world.use2D false
+param *.manager.updateInterval 0.01s
+param *.manager.host "\"localhost\""
+param *.manager.moduleType "\"org.car2x.plexe.PlatoonCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.moduleDisplayString "\"\""
+param *.manager.autoShutdown true
+param *.manager.margin 25
+param *.rsu[0].mobility.x 20
+param *.rsu[0].mobility.y 40
+param *.rsu[0].mobility.z 1.895
+param *.rsu[*].applType "\"AppRSU\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 7
+param *.rsu[*].appl.dataUserPriority 5
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+param *.rsu[*].appl.sendBeacons true
+param *.rsu[*].appl.dataOnSch true
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.mac1609_4.useAcks true
+param *.**.nic.mac1609_4.ackErrorRate 0.0
+param *.**.nic.mac1609_4.frameErrorRate 0.0
+param *.**.nic.phy80211p.minPowerLevel -94dBm
+param *.**.nic.phy80211p.maxTXPower 100mW
+param *.**.nic.phy80211p.useNoiseFloor true
+param *.**.nic.phy80211p.noiseFloor -95dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.rsu[*].nic.phy80211p.antennaOffsetY "0 m"
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+param *.node[*].mobility.x 0
+param *.node[*].mobility.y 0
+param *.node[*].mobility.z 1.895
+param **.seed 0
+param *.manager.configFile "\"./sumocfg/freeway.sumo.cfg\""
+param *.manager.launchConfig "xmldoc(\"./sumocfg/freeway.launchd.xml\")"
+param **.numberOfCars 4
+param **.numberOfCarsPerPlatoon 4
+param **.numberOfLanes 1
+param **.controllerXi 2
+param **.controllerOmegaN 1
+param *.node[*].helper_type "\"PositionHelper\""
+param *.node[*].scenario.caccC1 0.5
+param *.node[*].scenario.caccXi 2
+param *.node[*].scenario.caccOmegaN "1 Hz"
+param *.node[*].scenario.caccSpacing "5 m"
+param *.node[*].scenario.engineTau "0.5 s"
+param *.node[*].scenario.ploegH 0.5s
+param *.node[*].scenario.ploegKp 0.2
+param *.node[*].scenario.ploegKd 0.7
+param *.node[*].scenario.useRealisticEngine false
+param **.numericController 0
+param *.node[*].scenario.controller "\"CACC\""
+param *.node[*].scenario.accHeadway "0.1 s"
+param *.node[*].scenario.leaderHeadway 1.2s
+param *.node[*].scenario.leaderSpeed 100kmph
+param *.node[*].appl_type "\"SplittingPlatooningApp\""
+param *.node[*].appl.joinManeuver "\"JoinAtBack\""
+param *.node[*].appl.mergeManeuver "\"MergeAtBack\""
+param *.node[*].appl.splittingManeuver "\"Splitting\""
+param *.node[*].protocol_type "\"SimplePlatooningBeaconing\""
+param *.node[*].prot.beaconingInterval 0.1s
+param *.node[*].prot.priority 2
+param *.node[*].prot.packetSize 200
+param **.traffic_type "\"PlatoonsTrafficManager\""
+param **.traffic.platoonInsertTime "1 s"
+param **.traffic.platoonInsertSpeed 100kmph
+param **.traffic.nCars 4
+param **.traffic.platoonSize 4
+param **.traffic.nLanes 1
+param **.traffic.platooningVType "\"vtypeauto\""
+param **.traffic.platoonInsertDistance "5 m"
+param **.traffic.platoonInsertHeadway "0 s"
+param **.traffic.platoonLeaderHeadway 1.2s
+
+vector 0 Highway.node[3].prot frontDelay ETV
+vector 1 Highway.node[3].prot frontDelayId ETV
+vector 2 Highway.node[2].prot frontDelay ETV
+vector 3 Highway.node[2].prot frontDelayId ETV
+vector 4 Highway.node[1].prot leaderDelay ETV
+vector 5 Highway.node[1].prot leaderDelayId ETV
+vector 6 Highway.node[1].prot frontDelay ETV
+vector 7 Highway.node[1].prot frontDelayId ETV
+vector 8 Highway.node[2].prot leaderDelay ETV
+vector 9 Highway.node[2].prot leaderDelayId ETV
+vector 10 Highway.node[3].prot leaderDelay ETV
+vector 11 Highway.node[3].prot leaderDelayId ETV
+vector 12 Highway.node[0].prot nodeId ETV
+vector 13 Highway.node[0].prot busyTime ETV
+vector 14 Highway.node[0].prot collisions ETV
+vector 15 Highway.node[1].prot nodeId ETV
+vector 16 Highway.node[1].prot busyTime ETV
+vector 17 Highway.node[1].prot collisions ETV
+vector 18 Highway.node[2].prot nodeId ETV
+vector 19 Highway.node[2].prot busyTime ETV
+vector 20 Highway.node[2].prot collisions ETV
+vector 21 Highway.node[3].prot nodeId ETV
+vector 22 Highway.node[3].prot busyTime ETV
+vector 23 Highway.node[3].prot collisions ETV
+0	6501 1098 788 5900 1.213891645018 4.113890830344 30 0.099991611755 0.100011178374 3.000000800724 0.30000016098329
+1	7599 710 788 5900 1.213891645018 4.113890830344 30 3 3 90 270
+2	8309 1065 829 5771 1.22964167464 4.029642682424 29 0.099998177477 0.100011178268 2.900002623184 0.29000052513462
+3	9374 692 829 5771 1.22964167464 4.029642682424 29 2 2 58 116
+4	10066 1066 872 5808 1.254478704293 4.054479711981 29 0.099991611746 0.100011178354 2.900002623113 0.29000052545778
+5	11132 693 872 5808 1.254478704293 4.054479711981 29 1 1 29 29
+6	11825 1066 872 5808 1.254478704293 4.054479711981 29 0.099991611746 0.100011178354 2.900002623113 0.29000052545778
+7	12891 693 872 5808 1.254478704293 4.054479711981 29 1 1 29 29
+8	13584 1069 878 5814 1.254478733914 4.054479741556 29 0.099991611749 0.100011178358 2.900002623067 0.29000052544858
+9	14653 694 878 5814 1.254478733914 4.054479741556 29 2 2 58 116
+10	15347 1097 884 5820 1.254478763535 4.054479771152 29 0.099991611752 0.100011178363 2.900002623043 0.29000052544378
+11	16444 723 884 5820 1.254478763535 4.054479771152 29 3 3 87 261
+12	17167 36 2084 5656 2 4 3 0 0 0 0
+13	17203 62 2084 5656 2 4 3 0.01189235551 0.012586 0.03706435551 0.00045824291157623
+14	17265 36 2084 5656 2 4 3 0 0 0 0
+15	17301 36 2085 5657 2 4 3 1 1 3 3
+16	17337 63 2085 5657 2 4 3 0.011762059262 0.012586 0.036934059262 0.0004551608300828
+17	17400 36 2085 5657 2 4 3 0 0 0 0
+18	17436 36 2086 5658 2 4 3 2 2 6 12
+19	17472 63 2086 5658 2 4 3 0.011762118504 0.012586 0.036934118504 0.00045516222370214
+20	17535 36 2086 5658 2 4 3 0 0 0 0
+21	17571 36 2087 5659 2 4 3 3 3 9 27
+22	17607 63 2087 5659 2 4 3 0.011761177744 0.012586 0.036933177744 0.00045514009392596
+23	17670 36 2087 5659 2 4 3 0 0 0 0
+0	17706 18187 6152 84471 4.213882778158 51.129640038105 471 0.015753196292 0.100011259572 47.015749207761 4.7002473757605
+1	35893 12120 6152 84471 4.213882778158 51.129640038105 471 3 3 1413 4239
+2	48013 18140 5941 84356 4.129640859898 51.054478794476 470 0.099992328053 0.124838454122 47.024836112052 4.7055841809096
+3	66153 12078 5941 84356 4.129640859898 51.054478794476 470 2 2 940 1880
+4	78231 6825 5978 37422 4.154477889457 21.854481085376 178 0.099992278616 0.100011250886 17.800001373395 1.780000278464
+5	85056 4528 5978 37422 4.154477889457 21.854481085376 178 1 1 178 178
+6	89584 6825 5978 37422 4.154477889457 21.854481085376 178 0.099992278616 0.100011250886 17.800001373395 1.780000278464
+7	96409 4528 5978 37422 4.154477889457 21.854481085376 178 1 1 178 178
+8	100937 18148 5984 84356 4.154477919032 51.054478794476 470 0.099992278617 0.10001125889 46.99999905292 4.6999998201464
+9	119085 12086 5984 84356 4.154477919032 51.054478794476 470 2 2 940 1880
+10	131171 18658 5990 84471 4.154477948628 51.129640038105 471 0.0751642765 0.100011259572 47.075160266953 4.7056488764364
+11	149829 12598 5990 84471 4.154477948628 51.129640038105 471 3 3 1413 4239
+12	162427 651 7442 84217 5 51 47 0 0 0 0
+13	163078 962 7442 84217 5 51 47 0.01249 0.014033031552 0.591024391748 0.0074347013358934
+14	164040 651 7442 84217 5 51 47 0 0 0 0
+15	164691 651 7443 84218 5 51 47 1 1 47 47
+16	165342 964 7443 84218 5 51 47 0.01249 0.01380308885 0.590792169224 0.0074281720252902
+17	166306 651 7443 84218 5 51 47 0 0 0 0
+18	166957 651 7444 84219 5 51 47 2 2 94 188
+19	167608 964 7444 84219 5 51 47 0.01249 0.013803173354 0.590792339314 0.0074281765373416
+20	168572 651 7444 84219 5 51 47 0 0 0 0
+21	169223 651 7445 84220 5 51 47 3 3 141 423
+22	169874 959 7445 84220 5 51 47 0.01249 0.013836507144 0.590792507144 0.007428254489946
+23	170833 651 7445 84220 5 51 47 0 0 0 0
+

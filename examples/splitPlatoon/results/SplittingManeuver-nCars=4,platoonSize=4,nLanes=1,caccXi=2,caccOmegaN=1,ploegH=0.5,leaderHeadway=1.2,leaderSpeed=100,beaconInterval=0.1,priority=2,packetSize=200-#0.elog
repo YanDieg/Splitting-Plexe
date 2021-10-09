@@ -1,0 +1,588 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1286 rid SplittingManeuver-1-20211009-01:02:18-4160 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t Highway n Highway cm 1
+MS id 1 d bgb=$playgroundSizeX,$playgroundSizeY
+MC id 2 c veins::AnnotationManager t org.car2x.veins.modules.world.annotations.AnnotationManager pid 1 n annotations
+MS id 2 d p=260,50;i=msg/paperclip
+MC id 3 c veins::ConnectionManager t org.car2x.veins.base.connectionManager.ConnectionManager pid 1 n connectionManager
+MS id 3 d p=150,0;i=abstract/multicast
+MC id 4 c veins::BaseWorldUtility t org.car2x.veins.base.modules.BaseWorldUtility pid 1 n world
+MS id 4 d p=30,0;i=misc/globe
+MC id 5 c veins::TraCIScenarioManagerForker t org.car2x.plexe.traci.PlexeScenarioManagerForker pid 1 n manager
+MS id 5 d p=512,128;i=block/network2
+MC id 6 c plexe::PlexeManager t org.car2x.plexe.PlexeManager pid 1 n plexe
+MS id 6 d p=280,50;i=block/network2
+MC id 7 c plexe::PlatoonsTrafficManager t org.car2x.plexe.traffic.PlatoonsTrafficManager pid 1 n traffic
+MS id 7 d p=200,200
+MC id 8 c omnetpp::cModule t org.car2x.plexe.RSU pid 1 n rsu[0] cm 1
+GC m 8 g 0 n veinsradioIn o 0
+MS id 8 d p=20.00000,40.00000;i=veins/sign/yellowdiamond;is=vs
+MC id 9 c plexe::AppRSU t org.car2x.plexe.apps.AppRSU pid 8 n appl
+GC m 9 g 0 n lowerLayerIn o 0
+GC m 9 g 3 n lowerLayerOut o 1
+GC m 9 g 4 n lowerControlIn o 0
+GC m 9 g 7 n lowerControlOut o 1
+MS id 9 d p=60,50;i=block/app2
+MC id 10 c omnetpp::cModule t org.car2x.veins.modules.nic.Nic80211p pid 8 n nic cm 1
+GC m 10 g 0 n upperLayerIn o 0
+GC m 10 g 3 n upperLayerOut o 1
+GC m 10 g 5 n upperControlOut o 1
+GC m 10 g 6 n upperControlIn o 0
+GC m 10 g 8 n radioIn o 0
+MS id 10 d p=60,166
+MC id 12 c veins::PhyLayer80211p t org.car2x.veins.modules.phy.PhyLayer80211p pid 10 n phy80211p
+GC m 12 g 0 n upperLayerIn o 0
+GC m 12 g 3 n upperLayerOut o 1
+GC m 12 g 4 n upperControlIn o 0
+GC m 12 g 7 n upperControlOut o 1
+GC m 12 g 8 n radioIn o 0
+MS id 12 d p=69,218;i=block/process_s
+MC id 13 c veins::Mac1609_4 t org.car2x.veins.modules.mac.ieee80211p.Mac1609_4 pid 10 n mac1609_4
+GC m 13 g 0 n upperLayerIn o 0
+GC m 13 g 3 n upperLayerOut o 1
+GC m 13 g 4 n upperControlIn o 0
+GC m 13 g 7 n upperControlOut o 1
+GC m 13 g 8 n lowerLayerIn o 0
+GC m 13 g 11 n lowerLayerOut o 1
+GC m 13 g 12 n lowerControlIn o 0
+GC m 13 g 15 n lowerControlOut o 1
+MS id 13 d p=69,82
+MC id 11 c veins::BaseMobility t org.car2x.veins.base.modules.BaseMobility pid 8 n mobility
+MS id 11 d p=130,172;i=block/cogwheel
+MC id 14 c omnetpp::cModule t org.car2x.plexe.PlatoonCar pid 1 n node[0] cm 1
+MS id 14 d "p=149.84969,90.80000;veins= ."
+MC id 15 c plexe::PositionHelper t org.car2x.plexe.utilities.PositionHelper pid 14 n helper
+MS id 15 d p=90,100;i=block/app2
+MC id 16 c plexe::SplittingManeuverScenario t org.car2x.plexe.scenarios.SplittingManeuverScenario pid 14 n scenario
+GC m 16 g 0 n lowerLayerIn o 0
+GC m 16 g 3 n lowerLayerOut o 1
+GC m 16 g 4 n lowerControlIn o 0
+GC m 16 g 7 n lowerControlOut o 1
+MS id 16 d p=90,100;i=block/app2
+MC id 17 c plexe::SplittingPlatooningApp t org.car2x.plexe.apps.SplittingPlatooningApp pid 14 n appl
+GC m 17 g 0 n lowerLayerIn o 0
+GC m 17 g 3 n lowerLayerOut o 1
+GC m 17 g 4 n lowerControlIn o 0
+GC m 17 g 7 n lowerControlOut o 1
+MS id 17 d p=60,100;i=block/app2
+MC id 18 c plexe::SimplePlatooningBeaconing t org.car2x.plexe.protocols.SimplePlatooningBeaconing pid 14 n prot
+GC m 18 g 1048576 n upperLayerIn i 0 o 0
+GC m 18 g 1048577 n upperLayerIn i 1 o 0
+GC m 18 g 1048578 n upperLayerIn i 2 o 0
+GC m 18 g 1048579 n upperLayerIn i 3 o 0
+GC m 18 g 1048580 n upperLayerIn i 4 o 0
+GC m 18 g 1048581 n upperLayerIn i 5 o 0
+GC m 18 g 1048582 n upperLayerIn i 6 o 0
+GC m 18 g 1048583 n upperLayerIn i 7 o 0
+GC m 18 g 1048584 n upperLayerIn i 8 o 0
+GC m 18 g 1048585 n upperLayerIn i 9 o 0
+GC m 18 g 2621440 n upperLayerOut i 0 o 1
+GC m 18 g 2621441 n upperLayerOut i 1 o 1
+GC m 18 g 2621442 n upperLayerOut i 2 o 1
+GC m 18 g 2621443 n upperLayerOut i 3 o 1
+GC m 18 g 2621444 n upperLayerOut i 4 o 1
+GC m 18 g 2621445 n upperLayerOut i 5 o 1
+GC m 18 g 2621446 n upperLayerOut i 6 o 1
+GC m 18 g 2621447 n upperLayerOut i 7 o 1
+GC m 18 g 2621448 n upperLayerOut i 8 o 1
+GC m 18 g 2621449 n upperLayerOut i 9 o 1
+GC m 18 g 4 n lowerControlIn o 0
+GC m 18 g 7 n lowerControlOut o 1
+GC m 18 g 5242880 n upperControlIn i 0 o 0
+GC m 18 g 5242881 n upperControlIn i 1 o 0
+GC m 18 g 5242882 n upperControlIn i 2 o 0
+GC m 18 g 5242883 n upperControlIn i 3 o 0
+GC m 18 g 5242884 n upperControlIn i 4 o 0
+GC m 18 g 5242885 n upperControlIn i 5 o 0
+GC m 18 g 5242886 n upperControlIn i 6 o 0
+GC m 18 g 5242887 n upperControlIn i 7 o 0
+GC m 18 g 5242888 n upperControlIn i 8 o 0
+GC m 18 g 5242889 n upperControlIn i 9 o 0
+GC m 18 g 6815744 n upperControlOut i 0 o 1
+GC m 18 g 6815745 n upperControlOut i 1 o 1
+GC m 18 g 6815746 n upperControlOut i 2 o 1
+GC m 18 g 6815747 n upperControlOut i 3 o 1
+GC m 18 g 6815748 n upperControlOut i 4 o 1
+GC m 18 g 6815749 n upperControlOut i 5 o 1
+GC m 18 g 6815750 n upperControlOut i 6 o 1
+GC m 18 g 6815751 n upperControlOut i 7 o 1
+GC m 18 g 6815752 n upperControlOut i 8 o 1
+GC m 18 g 6815753 n upperControlOut i 9 o 1
+GC m 18 g 7340032 n radiosIn i 0 o 0
+GC m 18 g 8912896 n radiosOut i 0 o 1
+MS id 18 d p=60,200;i=block/network2
+MC id 19 c plexe::Veins11pRadioDriver t org.car2x.plexe.driver.Veins11pRadioDriver pid 14 n veins11pDriver
+GC m 19 g 0 n upperLayerIn o 0
+GC m 19 g 3 n upperLayerOut o 1
+GC m 19 g 4 n lowerLayerIn o 0
+GC m 19 g 7 n lowerLayerOut o 1
+GC m 19 g 8 n lowerControlIn o 0
+GC m 19 g 11 n lowerControlOut o 1
+MS id 19 d p=60,200
+MC id 20 c omnetpp::cModule t org.car2x.veins.modules.nic.Nic80211p pid 14 n nic cm 1
+GC m 20 g 0 n upperLayerIn o 0
+GC m 20 g 3 n upperLayerOut o 1
+GC m 20 g 5 n upperControlOut o 1
+GC m 20 g 6 n upperControlIn o 0
+GC m 20 g 8 n radioIn o 0
+MS id 20 d p=60,400
+MC id 22 c veins::PhyLayer80211p t org.car2x.veins.modules.phy.PhyLayer80211p pid 20 n phy80211p
+GC m 22 g 0 n upperLayerIn o 0
+GC m 22 g 3 n upperLayerOut o 1
+GC m 22 g 4 n upperControlIn o 0
+GC m 22 g 7 n upperControlOut o 1
+GC m 22 g 8 n radioIn o 0
+MS id 22 d p=69,218;i=block/process_s
+MC id 23 c veins::Mac1609_4 t org.car2x.veins.modules.mac.ieee80211p.Mac1609_4 pid 20 n mac1609_4
+GC m 23 g 0 n upperLayerIn o 0
+GC m 23 g 3 n upperLayerOut o 1
+GC m 23 g 4 n upperControlIn o 0
+GC m 23 g 7 n upperControlOut o 1
+GC m 23 g 8 n lowerLayerIn o 0
+GC m 23 g 11 n lowerLayerOut o 1
+GC m 23 g 12 n lowerControlIn o 0
+GC m 23 g 15 n lowerControlOut o 1
+MS id 23 d p=69,82
+MC id 21 c veins::TraCIMobility t org.car2x.veins.modules.mobility.traci.TraCIMobility pid 14 n mobility
+MS id 21 d p=130,172;i=block/cogwheel
+MC id 24 c omnetpp::cModule t org.car2x.plexe.PlatoonCar pid 1 n node[1] cm 1
+MS id 24 d "p=140.98581,90.80000;veins= ."
+MC id 25 c plexe::PositionHelper t org.car2x.plexe.utilities.PositionHelper pid 24 n helper
+MS id 25 d p=90,100;i=block/app2
+MC id 26 c plexe::SplittingManeuverScenario t org.car2x.plexe.scenarios.SplittingManeuverScenario pid 24 n scenario
+GC m 26 g 0 n lowerLayerIn o 0
+GC m 26 g 3 n lowerLayerOut o 1
+GC m 26 g 4 n lowerControlIn o 0
+GC m 26 g 7 n lowerControlOut o 1
+MS id 26 d p=90,100;i=block/app2
+MC id 27 c plexe::SplittingPlatooningApp t org.car2x.plexe.apps.SplittingPlatooningApp pid 24 n appl
+GC m 27 g 0 n lowerLayerIn o 0
+GC m 27 g 3 n lowerLayerOut o 1
+GC m 27 g 4 n lowerControlIn o 0
+GC m 27 g 7 n lowerControlOut o 1
+MS id 27 d p=60,100;i=block/app2
+MC id 28 c plexe::SimplePlatooningBeaconing t org.car2x.plexe.protocols.SimplePlatooningBeaconing pid 24 n prot
+GC m 28 g 1048576 n upperLayerIn i 0 o 0
+GC m 28 g 1048577 n upperLayerIn i 1 o 0
+GC m 28 g 1048578 n upperLayerIn i 2 o 0
+GC m 28 g 1048579 n upperLayerIn i 3 o 0
+GC m 28 g 1048580 n upperLayerIn i 4 o 0
+GC m 28 g 1048581 n upperLayerIn i 5 o 0
+GC m 28 g 1048582 n upperLayerIn i 6 o 0
+GC m 28 g 1048583 n upperLayerIn i 7 o 0
+GC m 28 g 1048584 n upperLayerIn i 8 o 0
+GC m 28 g 1048585 n upperLayerIn i 9 o 0
+GC m 28 g 2621440 n upperLayerOut i 0 o 1
+GC m 28 g 2621441 n upperLayerOut i 1 o 1
+GC m 28 g 2621442 n upperLayerOut i 2 o 1
+GC m 28 g 2621443 n upperLayerOut i 3 o 1
+GC m 28 g 2621444 n upperLayerOut i 4 o 1
+GC m 28 g 2621445 n upperLayerOut i 5 o 1
+GC m 28 g 2621446 n upperLayerOut i 6 o 1
+GC m 28 g 2621447 n upperLayerOut i 7 o 1
+GC m 28 g 2621448 n upperLayerOut i 8 o 1
+GC m 28 g 2621449 n upperLayerOut i 9 o 1
+GC m 28 g 4 n lowerControlIn o 0
+GC m 28 g 7 n lowerControlOut o 1
+GC m 28 g 5242880 n upperControlIn i 0 o 0
+GC m 28 g 5242881 n upperControlIn i 1 o 0
+GC m 28 g 5242882 n upperControlIn i 2 o 0
+GC m 28 g 5242883 n upperControlIn i 3 o 0
+GC m 28 g 5242884 n upperControlIn i 4 o 0
+GC m 28 g 5242885 n upperControlIn i 5 o 0
+GC m 28 g 5242886 n upperControlIn i 6 o 0
+GC m 28 g 5242887 n upperControlIn i 7 o 0
+GC m 28 g 5242888 n upperControlIn i 8 o 0
+GC m 28 g 5242889 n upperControlIn i 9 o 0
+GC m 28 g 6815744 n upperControlOut i 0 o 1
+GC m 28 g 6815745 n upperControlOut i 1 o 1
+GC m 28 g 6815746 n upperControlOut i 2 o 1
+GC m 28 g 6815747 n upperControlOut i 3 o 1
+GC m 28 g 6815748 n upperControlOut i 4 o 1
+GC m 28 g 6815749 n upperControlOut i 5 o 1
+GC m 28 g 6815750 n upperControlOut i 6 o 1
+GC m 28 g 6815751 n upperControlOut i 7 o 1
+GC m 28 g 6815752 n upperControlOut i 8 o 1
+GC m 28 g 6815753 n upperControlOut i 9 o 1
+GC m 28 g 7340032 n radiosIn i 0 o 0
+GC m 28 g 8912896 n radiosOut i 0 o 1
+MS id 28 d p=60,200;i=block/network2
+MC id 29 c plexe::Veins11pRadioDriver t org.car2x.plexe.driver.Veins11pRadioDriver pid 24 n veins11pDriver
+GC m 29 g 0 n upperLayerIn o 0
+GC m 29 g 3 n upperLayerOut o 1
+GC m 29 g 4 n lowerLayerIn o 0
+GC m 29 g 7 n lowerLayerOut o 1
+GC m 29 g 8 n lowerControlIn o 0
+GC m 29 g 11 n lowerControlOut o 1
+MS id 29 d p=60,200
+MC id 30 c omnetpp::cModule t org.car2x.veins.modules.nic.Nic80211p pid 24 n nic cm 1
+GC m 30 g 0 n upperLayerIn o 0
+GC m 30 g 3 n upperLayerOut o 1
+GC m 30 g 5 n upperControlOut o 1
+GC m 30 g 6 n upperControlIn o 0
+GC m 30 g 8 n radioIn o 0
+MS id 30 d p=60,400
+MC id 32 c veins::PhyLayer80211p t org.car2x.veins.modules.phy.PhyLayer80211p pid 30 n phy80211p
+GC m 32 g 0 n upperLayerIn o 0
+GC m 32 g 3 n upperLayerOut o 1
+GC m 32 g 4 n upperControlIn o 0
+GC m 32 g 7 n upperControlOut o 1
+GC m 32 g 8 n radioIn o 0
+MS id 32 d p=69,218;i=block/process_s
+MC id 33 c veins::Mac1609_4 t org.car2x.veins.modules.mac.ieee80211p.Mac1609_4 pid 30 n mac1609_4
+GC m 33 g 0 n upperLayerIn o 0
+GC m 33 g 3 n upperLayerOut o 1
+GC m 33 g 4 n upperControlIn o 0
+GC m 33 g 7 n upperControlOut o 1
+GC m 33 g 8 n lowerLayerIn o 0
+GC m 33 g 11 n lowerLayerOut o 1
+GC m 33 g 12 n lowerControlIn o 0
+GC m 33 g 15 n lowerControlOut o 1
+MS id 33 d p=69,82
+MC id 31 c veins::TraCIMobility t org.car2x.veins.modules.mobility.traci.TraCIMobility pid 24 n mobility
+MS id 31 d p=130,172;i=block/cogwheel
+MC id 34 c omnetpp::cModule t org.car2x.plexe.PlatoonCar pid 1 n node[2] cm 1
+MS id 34 d "p=132.11949,90.80000;veins= ."
+MC id 35 c plexe::PositionHelper t org.car2x.plexe.utilities.PositionHelper pid 34 n helper
+MS id 35 d p=90,100;i=block/app2
+MC id 36 c plexe::SplittingManeuverScenario t org.car2x.plexe.scenarios.SplittingManeuverScenario pid 34 n scenario
+GC m 36 g 0 n lowerLayerIn o 0
+GC m 36 g 3 n lowerLayerOut o 1
+GC m 36 g 4 n lowerControlIn o 0
+GC m 36 g 7 n lowerControlOut o 1
+MS id 36 d p=90,100;i=block/app2
+MC id 37 c plexe::SplittingPlatooningApp t org.car2x.plexe.apps.SplittingPlatooningApp pid 34 n appl
+GC m 37 g 0 n lowerLayerIn o 0
+GC m 37 g 3 n lowerLayerOut o 1
+GC m 37 g 4 n lowerControlIn o 0
+GC m 37 g 7 n lowerControlOut o 1
+MS id 37 d p=60,100;i=block/app2
+MC id 38 c plexe::SimplePlatooningBeaconing t org.car2x.plexe.protocols.SimplePlatooningBeaconing pid 34 n prot
+GC m 38 g 1048576 n upperLayerIn i 0 o 0
+GC m 38 g 1048577 n upperLayerIn i 1 o 0
+GC m 38 g 1048578 n upperLayerIn i 2 o 0
+GC m 38 g 1048579 n upperLayerIn i 3 o 0
+GC m 38 g 1048580 n upperLayerIn i 4 o 0
+GC m 38 g 1048581 n upperLayerIn i 5 o 0
+GC m 38 g 1048582 n upperLayerIn i 6 o 0
+GC m 38 g 1048583 n upperLayerIn i 7 o 0
+GC m 38 g 1048584 n upperLayerIn i 8 o 0
+GC m 38 g 1048585 n upperLayerIn i 9 o 0
+GC m 38 g 2621440 n upperLayerOut i 0 o 1
+GC m 38 g 2621441 n upperLayerOut i 1 o 1
+GC m 38 g 2621442 n upperLayerOut i 2 o 1
+GC m 38 g 2621443 n upperLayerOut i 3 o 1
+GC m 38 g 2621444 n upperLayerOut i 4 o 1
+GC m 38 g 2621445 n upperLayerOut i 5 o 1
+GC m 38 g 2621446 n upperLayerOut i 6 o 1
+GC m 38 g 2621447 n upperLayerOut i 7 o 1
+GC m 38 g 2621448 n upperLayerOut i 8 o 1
+GC m 38 g 2621449 n upperLayerOut i 9 o 1
+GC m 38 g 4 n lowerControlIn o 0
+GC m 38 g 7 n lowerControlOut o 1
+GC m 38 g 5242880 n upperControlIn i 0 o 0
+GC m 38 g 5242881 n upperControlIn i 1 o 0
+GC m 38 g 5242882 n upperControlIn i 2 o 0
+GC m 38 g 5242883 n upperControlIn i 3 o 0
+GC m 38 g 5242884 n upperControlIn i 4 o 0
+GC m 38 g 5242885 n upperControlIn i 5 o 0
+GC m 38 g 5242886 n upperControlIn i 6 o 0
+GC m 38 g 5242887 n upperControlIn i 7 o 0
+GC m 38 g 5242888 n upperControlIn i 8 o 0
+GC m 38 g 5242889 n upperControlIn i 9 o 0
+GC m 38 g 6815744 n upperControlOut i 0 o 1
+GC m 38 g 6815745 n upperControlOut i 1 o 1
+GC m 38 g 6815746 n upperControlOut i 2 o 1
+GC m 38 g 6815747 n upperControlOut i 3 o 1
+GC m 38 g 6815748 n upperControlOut i 4 o 1
+GC m 38 g 6815749 n upperControlOut i 5 o 1
+GC m 38 g 6815750 n upperControlOut i 6 o 1
+GC m 38 g 6815751 n upperControlOut i 7 o 1
+GC m 38 g 6815752 n upperControlOut i 8 o 1
+GC m 38 g 6815753 n upperControlOut i 9 o 1
+GC m 38 g 7340032 n radiosIn i 0 o 0
+GC m 38 g 8912896 n radiosOut i 0 o 1
+MS id 38 d p=60,200;i=block/network2
+MC id 39 c plexe::Veins11pRadioDriver t org.car2x.plexe.driver.Veins11pRadioDriver pid 34 n veins11pDriver
+GC m 39 g 0 n upperLayerIn o 0
+GC m 39 g 3 n upperLayerOut o 1
+GC m 39 g 4 n lowerLayerIn o 0
+GC m 39 g 7 n lowerLayerOut o 1
+GC m 39 g 8 n lowerControlIn o 0
+GC m 39 g 11 n lowerControlOut o 1
+MS id 39 d p=60,200
+MC id 40 c omnetpp::cModule t org.car2x.veins.modules.nic.Nic80211p pid 34 n nic cm 1
+GC m 40 g 0 n upperLayerIn o 0
+GC m 40 g 3 n upperLayerOut o 1
+GC m 40 g 5 n upperControlOut o 1
+GC m 40 g 6 n upperControlIn o 0
+GC m 40 g 8 n radioIn o 0
+MS id 40 d p=60,400
+MC id 42 c veins::PhyLayer80211p t org.car2x.veins.modules.phy.PhyLayer80211p pid 40 n phy80211p
+GC m 42 g 0 n upperLayerIn o 0
+GC m 42 g 3 n upperLayerOut o 1
+GC m 42 g 4 n upperControlIn o 0
+GC m 42 g 7 n upperControlOut o 1
+GC m 42 g 8 n radioIn o 0
+MS id 42 d p=69,218;i=block/process_s
+MC id 43 c veins::Mac1609_4 t org.car2x.veins.modules.mac.ieee80211p.Mac1609_4 pid 40 n mac1609_4
+GC m 43 g 0 n upperLayerIn o 0
+GC m 43 g 3 n upperLayerOut o 1
+GC m 43 g 4 n upperControlIn o 0
+GC m 43 g 7 n upperControlOut o 1
+GC m 43 g 8 n lowerLayerIn o 0
+GC m 43 g 11 n lowerLayerOut o 1
+GC m 43 g 12 n lowerControlIn o 0
+GC m 43 g 15 n lowerControlOut o 1
+MS id 43 d p=69,82
+MC id 41 c veins::TraCIMobility t org.car2x.veins.modules.mobility.traci.TraCIMobility pid 34 n mobility
+MS id 41 d p=130,172;i=block/cogwheel
+MC id 44 c omnetpp::cModule t org.car2x.plexe.PlatoonCar pid 1 n node[3] cm 1
+MS id 44 d "p=123.24687,90.80000;veins= ."
+MC id 45 c plexe::PositionHelper t org.car2x.plexe.utilities.PositionHelper pid 44 n helper
+MS id 45 d p=90,100;i=block/app2
+MC id 46 c plexe::SplittingManeuverScenario t org.car2x.plexe.scenarios.SplittingManeuverScenario pid 44 n scenario
+GC m 46 g 0 n lowerLayerIn o 0
+GC m 46 g 3 n lowerLayerOut o 1
+GC m 46 g 4 n lowerControlIn o 0
+GC m 46 g 7 n lowerControlOut o 1
+MS id 46 d p=90,100;i=block/app2
+MC id 47 c plexe::SplittingPlatooningApp t org.car2x.plexe.apps.SplittingPlatooningApp pid 44 n appl
+GC m 47 g 0 n lowerLayerIn o 0
+GC m 47 g 3 n lowerLayerOut o 1
+GC m 47 g 4 n lowerControlIn o 0
+GC m 47 g 7 n lowerControlOut o 1
+MS id 47 d p=60,100;i=block/app2
+MC id 48 c plexe::SimplePlatooningBeaconing t org.car2x.plexe.protocols.SimplePlatooningBeaconing pid 44 n prot
+GC m 48 g 1048576 n upperLayerIn i 0 o 0
+GC m 48 g 1048577 n upperLayerIn i 1 o 0
+GC m 48 g 1048578 n upperLayerIn i 2 o 0
+GC m 48 g 1048579 n upperLayerIn i 3 o 0
+GC m 48 g 1048580 n upperLayerIn i 4 o 0
+GC m 48 g 1048581 n upperLayerIn i 5 o 0
+GC m 48 g 1048582 n upperLayerIn i 6 o 0
+GC m 48 g 1048583 n upperLayerIn i 7 o 0
+GC m 48 g 1048584 n upperLayerIn i 8 o 0
+GC m 48 g 1048585 n upperLayerIn i 9 o 0
+GC m 48 g 2621440 n upperLayerOut i 0 o 1
+GC m 48 g 2621441 n upperLayerOut i 1 o 1
+GC m 48 g 2621442 n upperLayerOut i 2 o 1
+GC m 48 g 2621443 n upperLayerOut i 3 o 1
+GC m 48 g 2621444 n upperLayerOut i 4 o 1
+GC m 48 g 2621445 n upperLayerOut i 5 o 1
+GC m 48 g 2621446 n upperLayerOut i 6 o 1
+GC m 48 g 2621447 n upperLayerOut i 7 o 1
+GC m 48 g 2621448 n upperLayerOut i 8 o 1
+GC m 48 g 2621449 n upperLayerOut i 9 o 1
+GC m 48 g 4 n lowerControlIn o 0
+GC m 48 g 7 n lowerControlOut o 1
+GC m 48 g 5242880 n upperControlIn i 0 o 0
+GC m 48 g 5242881 n upperControlIn i 1 o 0
+GC m 48 g 5242882 n upperControlIn i 2 o 0
+GC m 48 g 5242883 n upperControlIn i 3 o 0
+GC m 48 g 5242884 n upperControlIn i 4 o 0
+GC m 48 g 5242885 n upperControlIn i 5 o 0
+GC m 48 g 5242886 n upperControlIn i 6 o 0
+GC m 48 g 5242887 n upperControlIn i 7 o 0
+GC m 48 g 5242888 n upperControlIn i 8 o 0
+GC m 48 g 5242889 n upperControlIn i 9 o 0
+GC m 48 g 6815744 n upperControlOut i 0 o 1
+GC m 48 g 6815745 n upperControlOut i 1 o 1
+GC m 48 g 6815746 n upperControlOut i 2 o 1
+GC m 48 g 6815747 n upperControlOut i 3 o 1
+GC m 48 g 6815748 n upperControlOut i 4 o 1
+GC m 48 g 6815749 n upperControlOut i 5 o 1
+GC m 48 g 6815750 n upperControlOut i 6 o 1
+GC m 48 g 6815751 n upperControlOut i 7 o 1
+GC m 48 g 6815752 n upperControlOut i 8 o 1
+GC m 48 g 6815753 n upperControlOut i 9 o 1
+GC m 48 g 7340032 n radiosIn i 0 o 0
+GC m 48 g 8912896 n radiosOut i 0 o 1
+MS id 48 d p=60,200;i=block/network2
+MC id 49 c plexe::Veins11pRadioDriver t org.car2x.plexe.driver.Veins11pRadioDriver pid 44 n veins11pDriver
+GC m 49 g 0 n upperLayerIn o 0
+GC m 49 g 3 n upperLayerOut o 1
+GC m 49 g 4 n lowerLayerIn o 0
+GC m 49 g 7 n lowerLayerOut o 1
+GC m 49 g 8 n lowerControlIn o 0
+GC m 49 g 11 n lowerControlOut o 1
+MS id 49 d p=60,200
+MC id 50 c omnetpp::cModule t org.car2x.veins.modules.nic.Nic80211p pid 44 n nic cm 1
+GC m 50 g 0 n upperLayerIn o 0
+GC m 50 g 3 n upperLayerOut o 1
+GC m 50 g 5 n upperControlOut o 1
+GC m 50 g 6 n upperControlIn o 0
+GC m 50 g 8 n radioIn o 0
+MS id 50 d p=60,400
+MC id 52 c veins::PhyLayer80211p t org.car2x.veins.modules.phy.PhyLayer80211p pid 50 n phy80211p
+GC m 52 g 0 n upperLayerIn o 0
+GC m 52 g 3 n upperLayerOut o 1
+GC m 52 g 4 n upperControlIn o 0
+GC m 52 g 7 n upperControlOut o 1
+GC m 52 g 8 n radioIn o 0
+MS id 52 d p=69,218;i=block/process_s
+MC id 53 c veins::Mac1609_4 t org.car2x.veins.modules.mac.ieee80211p.Mac1609_4 pid 50 n mac1609_4
+GC m 53 g 0 n upperLayerIn o 0
+GC m 53 g 3 n upperLayerOut o 1
+GC m 53 g 4 n upperControlIn o 0
+GC m 53 g 7 n upperControlOut o 1
+GC m 53 g 8 n lowerLayerIn o 0
+GC m 53 g 11 n lowerLayerOut o 1
+GC m 53 g 12 n lowerControlIn o 0
+GC m 53 g 15 n lowerControlOut o 1
+MS id 53 d p=69,82
+MC id 51 c veins::TraCIMobility t org.car2x.veins.modules.mobility.traci.TraCIMobility pid 44 n mobility
+MS id 51 d p=130,172;i=block/cogwheel
+CC sm 8 sg 0 dm 10 dg 8
+CC sm 9 sg 3 dm 10 dg 0
+CC sm 9 sg 7 dm 10 dg 6
+CC sm 10 sg 0 dm 13 dg 0
+CC sm 10 sg 3 dm 9 dg 0
+CC sm 10 sg 5 dm 9 dg 4
+CC sm 10 sg 6 dm 13 dg 4
+CC sm 10 sg 8 dm 12 dg 8
+CC sm 12 sg 3 dm 13 dg 8
+CC sm 12 sg 7 dm 13 dg 12
+CC sm 13 sg 3 dm 10 dg 3
+CC sm 13 sg 7 dm 10 dg 5
+CC sm 13 sg 11 dm 12 dg 0
+CC sm 13 sg 15 dm 12 dg 4
+CC sm 17 sg 3 dm 18 dg 1048576
+CC sm 17 sg 7 dm 18 dg 5242880
+CC sm 18 sg 2621440 dm 17 dg 0
+CC sm 18 sg 6815744 dm 17 dg 4
+CC sm 18 sg 8912896 dm 19 dg 0
+CC sm 19 sg 3 dm 18 dg 7340032
+CC sm 19 sg 7 dm 20 dg 0
+CC sm 20 sg 0 dm 23 dg 0
+CC sm 20 sg 3 dm 19 dg 4
+CC sm 20 sg 6 dm 23 dg 4
+CC sm 20 sg 8 dm 22 dg 8
+CC sm 22 sg 3 dm 23 dg 8
+CC sm 22 sg 7 dm 23 dg 12
+CC sm 23 sg 3 dm 20 dg 3
+CC sm 23 sg 7 dm 20 dg 5
+CC sm 23 sg 11 dm 22 dg 0
+CC sm 23 sg 15 dm 22 dg 4
+CC sm 27 sg 3 dm 28 dg 1048576
+CC sm 27 sg 7 dm 28 dg 5242880
+CC sm 28 sg 2621440 dm 27 dg 0
+CC sm 28 sg 6815744 dm 27 dg 4
+CC sm 28 sg 8912896 dm 29 dg 0
+CC sm 29 sg 3 dm 28 dg 7340032
+CC sm 29 sg 7 dm 30 dg 0
+CC sm 30 sg 0 dm 33 dg 0
+CC sm 30 sg 3 dm 29 dg 4
+CC sm 30 sg 6 dm 33 dg 4
+CC sm 30 sg 8 dm 32 dg 8
+CC sm 32 sg 3 dm 33 dg 8
+CC sm 32 sg 7 dm 33 dg 12
+CC sm 33 sg 3 dm 30 dg 3
+CC sm 33 sg 7 dm 30 dg 5
+CC sm 33 sg 11 dm 32 dg 0
+CC sm 33 sg 15 dm 32 dg 4
+CC sm 37 sg 3 dm 38 dg 1048576
+CC sm 37 sg 7 dm 38 dg 5242880
+CC sm 38 sg 2621440 dm 37 dg 0
+CC sm 38 sg 6815744 dm 37 dg 4
+CC sm 38 sg 8912896 dm 39 dg 0
+CC sm 39 sg 3 dm 38 dg 7340032
+CC sm 39 sg 7 dm 40 dg 0
+CC sm 40 sg 0 dm 43 dg 0
+CC sm 40 sg 3 dm 39 dg 4
+CC sm 40 sg 6 dm 43 dg 4
+CC sm 40 sg 8 dm 42 dg 8
+CC sm 42 sg 3 dm 43 dg 8
+CC sm 42 sg 7 dm 43 dg 12
+CC sm 43 sg 3 dm 40 dg 3
+CC sm 43 sg 7 dm 40 dg 5
+CC sm 43 sg 11 dm 42 dg 0
+CC sm 43 sg 15 dm 42 dg 4
+CC sm 47 sg 3 dm 48 dg 1048576
+CC sm 47 sg 7 dm 48 dg 5242880
+CC sm 48 sg 2621440 dm 47 dg 0
+CC sm 48 sg 6815744 dm 47 dg 4
+CC sm 48 sg 8912896 dm 49 dg 0
+CC sm 49 sg 3 dm 48 dg 7340032
+CC sm 49 sg 7 dm 50 dg 0
+CC sm 50 sg 0 dm 53 dg 0
+CC sm 50 sg 3 dm 49 dg 4
+CC sm 50 sg 6 dm 53 dg 4
+CC sm 50 sg 8 dm 52 dg 8
+CC sm 52 sg 3 dm 53 dg 8
+CC sm 52 sg 7 dm 53 dg 12
+CC sm 53 sg 3 dm 50 dg 3
+CC sm 53 sg 7 dm 50 dg 5
+CC sm 53 sg 11 dm 52 dg 0
+CC sm 53 sg 15 dm 52 dg 4
+
+E # 692 t 1.201327496906 m 17 ce -1 msg -1
+CM id 636 tid 636 eid 636 etid 636 c omnetpp::cMessage n StartSplitArea pe -1
+BS id 636 tid 636 eid 636 etid 636 c omnetpp::cMessage n StartSplitArea pe 692
+ES t 14.201327496906
+
+E # 4214 t 3.2 m 9 ce -1 msg -1
+CM id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n "" pe -1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n "" pe 4214
+ES t 4.2
+
+E # 4215 t 3.2 m 9 ce -1 msg -1
+CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n "" pe -1
+BS id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n "" pe 4215
+ES t 4.2
+
+E # 5656 t 4 m 18 ce -1 msg -1
+CM id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n recordData pe -1
+BS id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n recordData pe 5656
+ES t 5
+
+E # 5657 t 4 m 28 ce -1 msg -1
+CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n recordData pe -1
+BS id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n recordData pe 5657
+ES t 5
+
+E # 5658 t 4 m 38 ce -1 msg -1
+CM id 74 tid 74 eid 74 etid 74 c omnetpp::cMessage n recordData pe -1
+BS id 74 tid 74 eid 74 etid 74 c omnetpp::cMessage n recordData pe 5658
+ES t 5
+
+E # 5659 t 4 m 48 ce -1 msg -1
+CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n recordData pe -1
+BS id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n recordData pe 5659
+ES t 5
+
+E # 5786 t 4.05416349536 m 18 ce -1 msg -1
+CM id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n sendBeacon pe -1
+BS id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n sendBeacon pe 5786
+ES t 4.15416349536
+
+E # 5831 t 4.103222545495 m 48 ce -1 msg -1
+CM id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n sendBeacon pe -1
+BS id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n sendBeacon pe 5831
+ES t 4.203222545495
+
+E # 5872 t 4.113566696564 m 38 ce -1 msg -1
+CM id 73 tid 73 eid 73 etid 73 c omnetpp::cMessage n sendBeacon pe -1
+BS id 73 tid 73 eid 73 etid 73 c omnetpp::cMessage n sendBeacon pe 5872
+ES t 4.213566696564
+
+E # 5912 t 4.12 m 5 ce -1 msg -1
+CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n step pe -1
+BS id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n step pe 5912
+ES t 4.13
+
+E # 5913 t 4.129323126066 m 28 ce -1 msg -1
+CM id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n sendBeacon pe -1
+BS id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n sendBeacon pe 5913
+ES t 4.229323126066
+
+E # 5916 t 4.129327830323 m 32 ce -1 msg -1
+CM id 5559 tid 5559 eid 5559 etid 5559 c omnetpp::cMessage n "Radio switching over" k 22001 pe -1
+BS id 5559 tid 5559 eid 5559 etid 5559 c omnetpp::cMessage n "Radio switching over" k 22001 pe 5916
+SH sm 32 sg 7
+ES t 4.129327830323
+CM id 5557 tid 5557 eid 5555 etid 5555 c veins::Mac80211Pkt n "" k 12345 l 1600 pe -1
+BS id 5557 tid 5557 eid 5555 etid 5555 c veins::Mac80211Pkt n "" k 12345 l 1600 pe 5916
+SH sm 33 sg 11
+ES t 4.129328830323
